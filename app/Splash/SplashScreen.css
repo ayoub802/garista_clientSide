@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+header{
+ position: relative;
+ left: 0;
+ top: 0;
+ width: 1005;
+ height: 80px;
+}
+header h4{
+    position: absolute;
+    left:10%;
+    bottom: 1rem;
+    font-size: 1.6rem;
+}
+.intro{
+    position: fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100vh;
+    background-color: rgb(1, 1, 1);
+    transition: 1s;
+}
+.logo-header{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+   
+}
+.logo{
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+.logo.active{
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+.logo.fade{
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+@keyframes rotateAndEnlarge {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg); /* ou toute autre échelle et angle que vous souhaitez */
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.rotate-and-enlarge-image {
+    animation: rotateAndEnlarge 4s ease-in-out infinite; /* Réglez la durée et le type d'animation selon vos besoins */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+footer img {
+    width: 100%; /* La moitié de la largeur de l'écran */
+    display: inline-block;
+    vertical-align: middle; /* Alignement vertical */
+    margin-bottom: -21rem;
+
+}

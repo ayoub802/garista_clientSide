@@ -1,0 +1,76 @@
+/* Import de la police Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+
+/* Définition des styles pour la classe .name */
+body{
+    color: #ffffff;
+}
+.name {
+    font-family: "Allison", cursive;
+    font-weight: 500;
+    font-style: normal;
+    color: #ffffff; /* Couleur du texte */
+    font-size: 40px; /* Taille de la police */
+    line-height: 1.5; /* Hauteur de ligne */
+}
+
+/* Styles supplémentaires */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+/* Définition des animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Application des animations */
+.text-animation {
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.image-animation {
+    animation: fadeInRight 1.5s ease forwards;
+}
+
+.name-animation {
+    animation: slideInRight 1.5s ease forwards;
+}
+
+/* Animation de l'image */
+.image-animation {
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/*RS*/
