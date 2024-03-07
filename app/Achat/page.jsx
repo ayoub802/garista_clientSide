@@ -3,7 +3,7 @@ import React ,{useState} from 'react'
 import Achat from './../components/Achat'
 import {tabAchat} from '../constant/page'
 // import NavBar from '../NavBar/page'
-function page() {
+function Page() {
     const [cartCount, setCartCount] = useState(tabAchat.length);
 
   return (
@@ -15,4 +15,5 @@ function page() {
   )
 }
 
-export default page
+export default Page
+

@@ -3,13 +3,13 @@ import React ,{useState} from 'react'
 import Link from 'next/link';
 import './NavBar.css';
 import { tabAchat } from '../constant/page';
-function page() {
+function Page() {
   const [cartCount, setCartCount] = useState(tabAchat.length);
   return (
     <div className="container pt-4 px-4 m-0.5">
     <nav className="flex flex-col md:flex-row md:items-center md:justify-between">
     <div className="flex flex-row items-center w-full md:w-auto" style={{ justifyContent: 'space-between' }}>
-      <h2 className='text-zinc-400 font-bold  mb-2 md:mb-0 md:mr-4'>Restaurant's Name</h2>
+      <h2 className='text-zinc-400 font-bold  mb-2 md:mb-0 md:mr-4'>Restaurant&apos;s Name</h2>
       <div className="flex flex-row items-center">
         <Link href="/Info" passHref>
           <div className="inline-block mr-4 text-white">
@@ -45,4 +45,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
