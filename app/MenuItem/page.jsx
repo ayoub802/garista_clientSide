@@ -3,13 +3,13 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Credenza, CredenzaBody, CredenzaClose, CredenzaContent, CredenzaDescription, CredenzaFooter, CredenzaHeader, CredenzaTitle, CredenzaTrigger } from "@/components/ui/credenza";
 import { Icons } from "@/components/icons";
 import React, { useState, useEffect, useContext } from 'react';
-import { useSelectedItem } from './SelectedItemContext';
+// import { useSelectedItem } from './SelectedItemContext';
 import { tabAchat } from '../constant/page';
 import Tab from '../Tab/page';
 import { Data } from '../constant/page';
 import NavBar from '../NavBar/page';
 import Modal from './Modal';
-import { SelectedItemProvider } from '../MenuItem/SelectedItemContext';
+// import { SelectedItemProvider } from '../MenuItem/SelectedItemContext';
 import './MenuItem.css'
 
 const MenuItem = ({ type, cartCount, setCartCount }) => {
@@ -107,79 +107,81 @@ const MenuItem = ({ type, cartCount, setCartCount }) => {
               <hr className="border-t-2 w-full bg-white" />
             </div>
             
-            {data.map((item) => (
-            <Credenza>
-              <CredenzaTrigger asChild>
-                <Button>
-              <div key={item.id} className="w-full">
-                <button    type="button" onClick={() => toggleModal(item)}>
-                  <div className='md:max-w-3xl grid menu-item gap-4 items-center' style={{gridTemplateColumns: '.55fr 1fr'}}>
-                
-                  <div className="md:h-auto overflow-hidden flex justify-center">
-                    <img src={item.image} className="max-h-40 w-auto bg-cover rounded-3xl" alt="burger" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h3 className="text-sm">{item.title}</h3>
-                    <p className="text-[.7rem] md:text-base text-slate-400 ">
-                      {item.description.length < 120 ? item.description : item.description.slice(0, 120) + '...'}
-                    </p>
+            {data.map((item, index) => (
+              <div key={index}>
+                <Credenza>
+                  <CredenzaTrigger asChild>
+                    <Button>
+                  <div key={item.id} className="w-full">
+                    <button    type="button" onClick={() => toggleModal(item)}>
+                      <div className='md:max-w-3xl grid menu-item gap-4 items-center' style={{gridTemplateColumns: '.55fr 1fr'}}>
                     
-                    <div className="flex justify-between text-xs md:text-sm lg:text-base xl:text-lg text-gray-600">
-                      <p className='mb-0.5 text-sm'>{item.price}</p>
-                      <button type="button" onClick={()=>listAchat(item.id,item.type)} className="rounded-[1rem] text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium  text-xs md:text-sm   text-center flex items-center gap-2  dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800 btn btn-success">
+                      <div className="md:h-auto overflow-hidden flex justify-center">
+                        <img src={item.image} className="max-h-40 w-auto bg-cover rounded-3xl" alt="burger" />
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        <h3 className="text-sm">{item.title}</h3>
+                        <p className="text-[.7rem] md:text-base text-slate-400 ">
+                          {item.description.length < 120 ? item.description : item.description.slice(0, 120) + '...'}
+                        </p>
                         
-                        <svg className=" bi bi-bag-heart-fill"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                          <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
-                          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-                        </svg>
-                      </button>
+                        <div className="flex justify-between text-xs md:text-sm lg:text-base xl:text-lg text-gray-600">
+                          <p className='mb-0.5 text-sm'>{item.price}</p>
+                          <button type="button" onClick={()=>listAchat(item.id,item.type)} className="rounded-[1rem] text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium  text-xs md:text-sm   text-center flex items-center gap-2  dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800 btn btn-success">
+                            
+                            <svg className=" bi bi-bag-heart-fill"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                              <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                            </svg>
+                          </button>
+                        </div>
+
+
+                      </div>
+                      
                     </div>
+                    </button>
+                    {/* <Modal/> */}
 
-
+                    <hr className="w-full bg-white" />
                   </div>
-                  
-                </div>
-                </button>
-                {/* <Modal/> */}
+                  </Button>
+                    </CredenzaTrigger>
+                    <CredenzaContent>
+                      <CredenzaHeader>
+                        <CredenzaTitle>Credenza</CredenzaTitle>
+                        <CredenzaDescription>
+                          A responsive modal component for shadcn/ui.
+                        </CredenzaDescription>
+                      </CredenzaHeader>
+                      <CredenzaBody className="space-y-4 pb-4 text-center text-sm sm:pb-0 sm:text-left">
+                        <p>
+                          This component is built using shadcn/ui&apos;s dialog and
+                          drawer component, which is built on top of Vaul.
+                        </p>
+                        <p>
+                          It shows a{" "}
 
-                <hr className="w-full bg-white" />
+                          for desktop view and a{" "}
+
+                          for mobile view.
+                        </p>
+                        <p>
+                          The documentation for installation and usage can be found on
+                          the{" "}
+
+                          .
+                        </p>
+                      </CredenzaBody>
+                      <CredenzaFooter>
+
+                        <CredenzaClose asChild>
+                          <Button variant="outline">Close</Button>
+                        </CredenzaClose>
+                      </CredenzaFooter>
+                    </CredenzaContent>
+                  </Credenza>
               </div>
-              </Button>
-                </CredenzaTrigger>
-                <CredenzaContent>
-                  <CredenzaHeader>
-                    <CredenzaTitle>Credenza</CredenzaTitle>
-                    <CredenzaDescription>
-                      A responsive modal component for shadcn/ui.
-                    </CredenzaDescription>
-                  </CredenzaHeader>
-                  <CredenzaBody className="space-y-4 pb-4 text-center text-sm sm:pb-0 sm:text-left">
-                    <p>
-                      This component is built using shadcn/ui&apos;s dialog and
-                      drawer component, which is built on top of Vaul.
-                    </p>
-                    <p>
-                      It shows a{" "}
-
-                      for desktop view and a{" "}
-
-                      for mobile view.
-                    </p>
-                    <p>
-                      The documentation for installation and usage can be found on
-                      the{" "}
-
-                      .
-                    </p>
-                  </CredenzaBody>
-                  <CredenzaFooter>
-
-                    <CredenzaClose asChild>
-                      <Button variant="outline">Close</Button>
-                    </CredenzaClose>
-                  </CredenzaFooter>
-                </CredenzaContent>
-              </Credenza>
                         ))}
                         
           </div>
